@@ -1,0 +1,10 @@
+{% extends 'save.html' %}
+
+{% block title %}Pattern two{% endblock %}
+
+{% block content %}
+  {% for like in likes_count %}
+    <p>{{like}}</p>
+  {% endfor %}
+
+{% endblock %}
