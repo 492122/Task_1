@@ -42,13 +42,14 @@
          <!--<script src="draw.js"></script> -->
          {% block content %}{% endblock %}
          <div id ="myChart"></div>
+         <script>const likes = document.getElementById("like").innerHTML</script>
          <script>
             var chart = c3.generate({
             bindto: '#bar',  // <---- here
             data: {
-              columns: [
-                ['A1', 1],             
-              ],
+              columns:[ 
+                ['A1', likes] ]      
+              ,
               type: 'bar'
             },
             bar: {
@@ -60,8 +61,7 @@
             setTimeout(function () {
               chart.load({
                   columns: [
-                      ['A1', 2] 
-                      ]
+                      ['A1', lik] ]                      
               });
             }, 5000);
             

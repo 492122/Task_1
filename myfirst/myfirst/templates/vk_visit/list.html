@@ -4,7 +4,8 @@
 
 {% block content %}
   {% for like in likes_count %}
-    <p>{{like}}</p>
+  the number of likes on the last post:
+    <p id="like">{{like}}</p>
   {% endfor %}
 
 {% endblock %}
