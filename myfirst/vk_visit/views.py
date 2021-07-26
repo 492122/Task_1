@@ -34,4 +34,4 @@ def index(request, group_name):
  #   name_dict = g.json()
  #   group = name_dict['response'][0]['screen_name']
  #   return HttpResponse(group_name = group)
- #    dsds
+ #    dsds dfs
