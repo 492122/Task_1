@@ -9,10 +9,10 @@ from django.template import loader
   #  return HttpResponse(html)
 import requests
 def index(request, group_name):   
-    g = requests.get('https://api.vk.com/method/groups.getById?user_id=138524541&v=5.74&access_token=8932da4dfdb25ef2c5a75d6803c4d5b0b13112ab1a0c464c90cc58caf940e1a11069881f197fa43a9e0ab',params={'group_id': group_name, 'fields':'name'} )
+    g = requests.get('https://api.vk.com/method/groups.getById?user_id=138524541&v=5.74&access_token=4cb9f07f1edb52d29af192b1c95edb2c7c0e5cbca2de48bc7997374d25904837241b2f8536bdadff3ab7f',params={'group_id': group_name, 'fields':'name'} )
     name_dict = g.json()
     group_id = name_dict['response'][0]['id']
-    r = requests.get('https://api.vk.com/method/wall.get?user_id=138524541&v=5.74&access_token=8932da4dfdb25ef2c5a75d6803c4d5b0b13112ab1a0c464c90cc58caf940e1a11069881f197fa43a9e0ab',params={'owner_id': -group_id,'count':4}) #-153484210
+    r = requests.get('https://api.vk.com/method/wall.get?user_id=138524541&v=5.74&access_token=4cb9f07f1edb52d29af192b1c95edb2c7c0e5cbca2de48bc7997374d25904837241b2f8536bdadff3ab7f',params={'owner_id': -group_id}) #-153484210
     response = r.json()
     post = response['response']['count']
     count_r = '<html><body>Количество постов на стене =  %s.</body></html>' % post 
@@ -22,6 +22,7 @@ def index(request, group_name):
     likes_count = response['response']['items'][1]['likes']['count'] #количество лайков   
     #d = '<html><body>Количество лайков на последнем посте =  %s</body></html>' % likes_count
     output= '%d' % likes_count
+    out = int(likes_count)
     #e = render(request, 'vk_visit/list.html')
     t1 = loader.get_template('vk_visit/list.html')
     like = {"likes_count":output}

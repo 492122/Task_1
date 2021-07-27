@@ -48,20 +48,20 @@
             bindto: '#bar',  // <---- here
             data: {
               columns:[ 
-                ['A1', likes] ]      
+                ['count_likes', likes] ]      
               ,
               type: 'bar'
             },
             bar: {
               width: {
-                ratio: 0.5
+                ratio: 0.1
               }
             }
             });
             setTimeout(function () {
               chart.load({
                   columns: [
-                      ['A1', likes] ]                      
+                      ['count_likes', likes] ]                      
               });
             }, 5000);
             
