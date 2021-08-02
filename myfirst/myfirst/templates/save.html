@@ -36,7 +36,7 @@
       </head>
       <body>
          <!--<div id="container"></div>-->
-         <div id ="bar"></div>
+         <div id ="chart"></div>
          <script src="https://cdn.anychart.com/js/latest/anychart-bundle.min.js"></script>
          <!--<script src="{% static 'js/draw.js' %}"></script> -->
          <!--<script src="draw.js"></script> -->
@@ -45,24 +45,18 @@
          <script>const likes = document.getElementById("like").innerHTML</script>
          <script>
             var chart = c3.generate({
-            bindto: '#bar',  // <---- here
+            bindto: '#chart',  // <---- here
             data: {
               columns:[ 
-                ['count_likes', likes] ]      
-              ,
-              type: 'bar'
+                ['count_likes', 4] ]      
             },
-            bar: {
-              width: {
-                ratio: 0.1
-              }
-            }
             });
-            setTimeout(function () {
+                    
+              setTimeout(function () {
               chart.load({
                   columns: [
-                      ['count_likes', likes] ]                      
-              });
+                      ['count_likes', likes] ]});
+           chart.update();
             }, 5000);
             
             
